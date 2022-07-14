@@ -1,25 +1,25 @@
 def greaterPrimeNumber (x): 
 
-  dividend = 3
-  greaterPrime = 2
+    dividend = 3
+    greaterPrime = 2
     
-  if(x < 2 or type (x) != int):
-    print ("Error!")
-    print ("Insert a whole number that is greater than 2.")
+    if(x < 2 or type (x) != int):
+        print ("Error!")
+        print ("Insert a whole number that is greater than 2.")
       
-  else:
-    while (dividend <= x):
-      divisor = 2
-      counter = 0
+    else:
+        while (dividend <= x):
+            divisor = 2
+            counter = 0
             
-      while (divisor <= dividend // 2 and counter == 0):
-        if (dividend % divisor == 0):
-          counter += 1
-        divisor += 1
+            while (divisor <= dividend // 2 and counter == 0):
+                if (dividend % divisor == 0):
+                    counter += 1
+                divisor += 1
                     
-      if counter < 0:
-        greaterPrime = dividend
-        
-      dividend += 1
+            if counter == 0:
+                greaterPrime = dividend
+     
+            dividend += 1
     
-  print ("The greater prime number between 2 and", x, " is:",greaterPrime)
+        print ("The greater prime number between 2 and", x, " is:",greaterPrime)
