@@ -1,0 +1,19 @@
+def usuario_escolhe_jogada (n, m):
+    jogadaValida = False
+    while (jogadaValida == False):
+        pecasRetirar = input("Quantas peças você vai tirar? ")
+        if (type(pecasRetirar) == int and pecasRetirar > 0 and pecasRetirar <= n and pecasRetirar <= m):
+            jogadaValida = True
+        else:
+            print ()
+            print ("Oops! Jogada inválida! Tente de novo.")
+            print ()
+
+
+def computador_escolhe_jogada (n, m):
+    while (n >= 1):
+        if(n % (m + 1) == 0):
+            return n
+            break
+        else:
+            n -= 1
