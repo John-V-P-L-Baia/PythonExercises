@@ -1,25 +1,37 @@
-def greaterPrimeNumber (x): 
+def main ():
+    number = 1
+    while (number != 0):
+        number = int(input("Insert a whole number greater than 2 (type 0 to stop): "))
+        if (number != 0):
+            greaterPrimeNumber (number)
+        else:
+            endMessage()
 
+def errorMessage ():
+    print ("Error!")
+    print ("Insert a whole number that is greater than 2.")
+
+def endMessage ():
+    print("Thank you for using my little program! Any suggestions contact me on GitHub: ")
+    print("https://github.com/John-V-P-L-Baia")
+
+def greaterPrimeNumber (x):
     dividend = 3
     greaterPrime = 2
-    
-    if(x < 2 or type (x) != int):
-        print ("Error!")
-        print ("Insert a whole number that is greater than 2.")
-      
+    if(x <= 2 or type (x) != int):
+        errorMessages()
     else:
         while (dividend <= x):
-            divisor = 2
-            counter = 0
-            
-            while (divisor <= dividend // 2 and counter == 0):
-                if (dividend % divisor == 0):
-                    counter += 1
-                divisor += 1
-                    
-            if counter == 0:
+            if isItPrime (dividend) == 0:
                 greaterPrime = dividend
-     
             dividend += 1
-    
         print ("The greater prime number between 2 and", x, " is:",greaterPrime)
+
+def isItPrime (y):
+    divisor = 2
+    counter = 0
+    while (divisor <= y // 2 and counter == 0):
+        if (y % divisor == 0):
+            counter += 1
+        divisor += 1
+    return counter
