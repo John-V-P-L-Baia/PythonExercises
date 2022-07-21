@@ -1,18 +1,12 @@
 def usuario_escolhe_jogada (n, m):
-    jogadaValida = False
-    while (jogadaValida == False):
-        try:
-            pecasRetiradas = int(input("Quantas peças você vai tirar? "))
-            print()
-        except ValueError as ve:
-            print ("Oops! Jogada inválida! Tente de novo.")
-            print ()
-            continue
-        if (pecasRetiradas > 0 and pecasRetiradas <= n and pecasRetiradas <= m):
-            jogadaValida = True
-            pecasRetiradas = int(pecasRetiradas)
+    controlVar = False
+    while(controlVar == False):
+        print("Quantas peças você vai tirar? ")
+        pecasRetiradas = int_positive ()   
+        print("-----------------------------------------------")
+        if (pecasRetiradas <= n and pecasRetiradas <= m):
+            controlVar = True
             return pecasRetiradas
-            break
         else:
             print ("Oops! Jogada inválida! Tente de novo.")
             print ()
@@ -28,22 +22,48 @@ def computador_escolhe_jogada (n, m):
             pecasRetiradas += 1
     return pecasRetiradas
 
-def partida():
-    start = False
-    while (start == False):
+def int_positive ():
+    validate = False
+    while (validate == False):
         try:
-            print ("Bem-vindo ao jogo do NIM! Escolha:")
-            print ()
-            print ("1 - para jogar uma partida isolada.")
-            print ("2 - para jogar um campeonato.")
-            print ()
-            modoDeJogo = int(input())
-            print()
+            answer = int(input("Resposta: "))
         except ValueError as ve:
-            print ("Oops! Esse modo de jogo é inválido! Tente de novo.")
-            print ()
+            print ("\nOops! Jogada inválida! Tente de novo.\n")
             continue
-        if (modoDeJogo <= 2 and modoDeJogo > 0):
-            start = True
+        if (type(answer) == int and answer > 0):
+            validate == True
+            return answer
+            break
         else:
-            print ("Oops! Esse modo de jogo é inválido! Tente de novo.")
+            print ("\nOops! Jogada inválida! Tente de novo.\n")
+
+def teste ():
+    
+    if (computador_escolhe_jogada (10, 4) == 4):
+        print ("ok")
+    else:
+        print ("nok")
+        print (computador_escolhe_jogada (10, 4))
+        
+    if (computador_escolhe_jogada (18, 3) == 2):
+        print ("ok")
+    else:
+        print ("nok")
+        
+    if (computador_escolhe_jogada (5, 2) == 2):
+        print ("ok")
+    else:
+        print ("nok")
+        
+    if (computador_escolhe_jogada (23, 4) == 3):
+        print ("ok")
+    else:
+        print ("nok")
+    if (computador_escolhe_jogada (2, 3) == 2):
+        print ("ok")
+    else:
+        print ("nok")    
+    if (computador_escolhe_jogada (4, 4) == 4):
+        print ("ok")
+    else:
+        print ("nok")
