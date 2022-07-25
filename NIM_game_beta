@@ -12,7 +12,7 @@ def main ():
         else:
             print ("\nOops! Jogada inválida! Tente de novo.\n")
             gameMode = 0
-        print("-----------------------------------------------")
+        print("\n-----------------------------------------------\n")
     if(gameMode == 1):
         partida()
     elif(gameMode == 2):
@@ -23,19 +23,19 @@ def partida():
     pecasMesa = nat_not_0 ()
     print("Limite de peças por jogada?")
     limitePecas = nat_not_0 ()
-    
+    print("\n-----------------------------------------------\n")
     #user starts
     if(pecasMesa % (limitePecas + 1) == 0):
-        print("\nVocê começa!\n")
+        print("Você começa!\n")
         while (pecasMesa != 0):
             
             #user play
-            userPlay = usuário_escolhe_jogada (pecasMesa, limitePecas)
+            userPlay = usuario_escolhe_jogada (pecasMesa, limitePecas)
             pecasMesa = pecasMesa - userPlay
             if (userPlay == 1):
-                print ("\nVocê tirou uma peça.")
+                print ("Você tirou uma peça.")
             else:
-                print ("\nVoce tirou", userPlay, "peças.")
+                print ("Voce tirou", userPlay, "peças.")
             if (pecasMesa == 0):    
                 print("Fim do jogo! Você ganhou!")
                 return True
@@ -50,9 +50,9 @@ def partida():
             computerPlay = computador_escolhe_jogada (pecasMesa, limitePecas)
             pecasMesa = pecasMesa - computerPlay
             if (computerPlay == 1):
-                print ("\nVocê tirou uma peça.")
+                print ("O computador tirou uma peça.")
             else:
-                print ("\nVoce tirou", userPlay, "peças.")
+                print ("O computador tirou", computerPlay, "peças.")
             if (pecasMesa == 0):    
                 print("Fim do jogo! O computador ganhou!")
                 return False
@@ -64,16 +64,16 @@ def partida():
                     print ("Agora resta apenas", pecasMesa, "peças no tabuleiro.\n")
                     
          #computer starts
-        else:
-        print("\nComputador começa!\n")
+    else:
+        print("Computador começa!\n")
         while (pecasMesa != 0):
-            #computer play
+        #computer play
             computerPlay = computador_escolhe_jogada (pecasMesa, limitePecas)
             pecasMesa = pecasMesa - computerPlay
             if (computerPlay == 1):
-                print ("\nVocê tirou uma peça.")
+                print ("O computador tirou uma peça.\n")
             else:
-                print ("\nVoce tirou", userPlay, "peças.")
+                print ("O computador tirou", computerPlay, "peças.\n")
             if (pecasMesa == 0):    
                 print("Fim do jogo! O computador ganhou!")
                 return False
@@ -85,12 +85,12 @@ def partida():
                     print ("Agora resta apenas", pecasMesa, "peças no tabuleiro.\n")
                     
             #user play
-            userPlay = usuário_escolhe_jogada (pecasMesa, limitePecas)
+            userPlay = usuario_escolhe_jogada (pecasMesa, limitePecas)
             pecasMesa = pecasMesa - userPlay
             if (userPlay == 1):
-                print ("\nVocê tirou uma peça.")
+                print ("Você tirou uma peça.")
             else:
-                print ("\nVoce tirou", userPlay, "peças.")
+                print ("Voce tirou", userPlay, "peças.")
             if (pecasMesa == 0):    
                 print("Fim do jogo! Você ganhou!")
                 return True
@@ -105,12 +105,15 @@ def campeonato ():
     roundCounter = 1
     userPoints = 0
     computerPoints = 0
-    while (roundCounter != 3):
+    while (roundCounter <= 3):
+        print("\n-----------------------------------------------\n")
         print ("**** Rodada",roundCounter, "****")
         if (partida() == True):
             userPoints += 1
         else:
             computerPoints += 1
+        roundCounter += 1
+    print("\n-----------------------------------------------\n")    
     print ("**** Final do campeonato! ****")
     print ("Placar: Você", userPoints, "X",computerPoints, "Computador")
 #--------------------------------------------------------------------------------------------------------------- 
@@ -121,10 +124,10 @@ def usuario_escolhe_jogada (n, m):
         pecasRetiradas = nat_not_0 ()   
         if (pecasRetiradas <= n and pecasRetiradas <= m):
             controlVar = True
-            print("-----------------------------------------------")
+            print("\n-----------------------------------------------\n")
             return pecasRetiradas
         else:
-            print("-----------------------------------------------")
+            print("\n-----------------------------------------------\n")
             print ("\nOops! Jogada inválida! Tente de novo.\n")
 #---------------------------------------------------------------------------------------------------------------
 def computador_escolhe_jogada (n, m):
@@ -144,16 +147,16 @@ def nat_not_0 ():
         try:
             answer = int(input("Resposta: "))
         except ValueError as ve:
-            print ("\nOops! Jogada inválida! Tente de novo.\n")
-            print("-----------------------------------------------")
+            print("\n-----------------------------------------------\n")
+            print ("Oops! Jogada inválida! Tente de novo.\n")
             continue
         if (type(answer) == int and answer > 0):
             validate == True
             return answer
             break
         else:
-            print("-----------------------------------------------")
-            print ("\nOops! Jogada inválida! Tente de novo.\n")
+            print("\n-----------------------------------------------\n")
+            print ("Oops! Jogada inválida! Tente de novo.\n")
 #--------------------------------------------------------------------------------------------------------------- 
 
 main()
