@@ -14,8 +14,11 @@ def main ():
             gameMode = 0
         print("\n-----------------------------------------------\n")
     if(gameMode == 1):
+        print ("Você escolheu partida!")
+        print("\n-----------------------------------------------\n")
         partida()
     elif(gameMode == 2):
+        print ("Você escolheu campeonato!")
         campeonato()
 #----------------------------------------------------------------------------------------------------------------
 def partida():
