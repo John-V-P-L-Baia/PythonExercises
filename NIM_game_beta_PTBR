@@ -20,7 +20,8 @@ def main ():
     elif(gameMode == 2):
         print ("Você escolheu campeonato!")
         campeonato()
-#----------------------------------------------------------------------------------------------------------------
+    endMessage ()
+
 def partida():
     print("Quantas peças?")
     pecasMesa = nat_not_0 ()
@@ -103,7 +104,7 @@ def partida():
                     print ("Agora resta apenas uma peça no tabuleiro.\n")
                 else:
                     print ("Agora resta apenas", pecasMesa, "peças no tabuleiro.\n")
-#---------------------------------------------------------------------------------------------------------------
+
 def campeonato ():
     roundCounter = 1
     userPoints = 0
@@ -119,7 +120,7 @@ def campeonato ():
     print("\n-----------------------------------------------\n")    
     print ("**** Final do campeonato! ****")
     print ("Placar: Você", userPoints, "X",computerPoints, "Computador")
-#--------------------------------------------------------------------------------------------------------------- 
+
 def usuario_escolhe_jogada (n, m):
     controlVar = False
     while(controlVar == False):
@@ -132,7 +133,7 @@ def usuario_escolhe_jogada (n, m):
         else:
             print("\n-----------------------------------------------\n")
             print ("\nOops! Jogada inválida! Tente de novo.\n")
-#---------------------------------------------------------------------------------------------------------------
+
 def computador_escolhe_jogada (n, m):
     pecasRetiradas = 1
     while (pecasRetiradas < m and (n - pecasRetiradas) >= 0):
@@ -143,7 +144,7 @@ def computador_escolhe_jogada (n, m):
         else:
             pecasRetiradas += 1
     return pecasRetiradas
-#---------------------------------------------------------------------------------------------------------------
+
 def nat_not_0 ():
     validate = False
     while (validate == False):
@@ -160,6 +161,9 @@ def nat_not_0 ():
         else:
             print("\n-----------------------------------------------\n")
             print ("Oops! Jogada inválida! Tente de novo.\n")
-#--------------------------------------------------------------------------------------------------------------- 
 
+def endMessage ():
+    print("Thank you for using my little program! Any suggestions contact me on GitHub: ")
+    print("https://github.com/John-V-P-L-Baia")
+    
 main()
