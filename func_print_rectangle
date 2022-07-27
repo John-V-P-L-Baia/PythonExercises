@@ -1,0 +1,25 @@
+#put the height and the length of the rectangle and the function will print it (the corners will be "+" signs)
+
+def print_rectangle (height,length):
+    l = 1
+    h = 1
+    while h <= height:
+        if h == 1 or h == height:
+            firstLastRow = True
+        else:
+            firstLastRow = False
+        while l <= length:
+            if firstLastRow == True:
+                if l == 1 or l == length:
+                    print("+  ", end = "")
+                else:
+                    print("—  ", end = "")
+            else:
+                if l == 1 or l == length:
+                    print("|  ", end = "")
+                else:
+                    print("   ", end = "")
+            l += 1
+        print()
+        l = 1
+        h += 1
