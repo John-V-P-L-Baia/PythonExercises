@@ -35,3 +35,5 @@ def isItPrime (y):
             counter += 1
         divisor += 1
     return counter
+
+main()
