@@ -1,0 +1,47 @@
+#The function return the number of prime numbers between 2 and a variable (inputNumber).
+
+def n_primos (inputNumber):
+    inputNumber = int(inputNumber)
+    if(inputNumber >= 2 or type(inputNumber) != int):
+        dividend = 3
+        primeCounter = 1
+        while (dividend <= inputNumber):
+            divisor = 2
+            itsPrimeCounter = 0
+            while (divisor <= dividend / 2):
+                if (dividend % divisor == 0):
+                    itsPrimeCounter += 1
+                divisor += 1
+            dividend += 1
+            if (itsPrimeCounter <= 0):
+                primeCounter += 1
+        return primeCounter
+    else:
+        print ("Invalid Value! Please insert a whole number greater than 2.")
+        return 0
+
+def teste ():
+    if n_primos (5) == 3:
+        print("5: ok")
+    else:
+        print("5: not ok")
+    if n_primos (8) == 4:
+        print("8: ok")
+    else:
+        print("8: not ok")    
+    if n_primos (16) == 6:
+        print("16: ok")
+    else:
+        print("16: not ok")
+    if n_primos (2) == 1:
+        print("2: ok")
+    else:
+        print("2: not ok")
+    if n_primos (3) == 2:
+        print("3: ok")
+    else:
+        print("3: not ok")
+    if n_primos (1) == 0:
+        print("1: ok")
+    else:
+        print("1: not ok")
