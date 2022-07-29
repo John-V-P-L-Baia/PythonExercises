@@ -1,0 +1,119 @@
+# A function that get a number n and see what numbers between 1 and n are hypotenuse of a rectangle triangle
+# (considering that the cathetus and the hypotenuse are natural numbers), and return the sum of all hypotenuses in the range.
+# The tests were made automaticaly.
+
+def sum_hypotenuses (entry):
+    if (entry > 0 and type(entry) == int):
+        auxiliary = 1
+        result = 0
+        while (auxiliary <= entry):
+            if(is_it_hypotenuse (auxiliary) == True):
+                result = result + auxiliary
+            auxiliary += 1
+        return result
+    else:
+        print ("Insert a whole number equal or greater than 1.")
+        return 0
+
+def is_it_hypotenuse (number):
+    hypotenuse = False
+    cathetusOne = 1
+    while ((cathetusOne ** 2 + 1) <= (number ** 2) and hypotenuse == False):
+        cathetusTwo = 1
+        while((cathetusOne ** 2 + cathetusTwo ** 2) <= (number ** 2)):
+            if((cathetusOne ** 2 + cathetusTwo ** 2) == (number ** 2)):
+                hypotenuse = True
+            cathetusTwo += 1
+        cathetusOne += 1
+    return hypotenuse
+    
+def test_is_it_hypotenuse ():
+    counter = 0
+    if (is_it_hypotenuse (5) == True):
+        print ("5: ok")
+        counter += 1
+    else:
+        print ("5: nok")
+    if (is_it_hypotenuse (10) == True):
+        print ("10: ok")
+        counter += 1
+    else:
+        print ("10: nok")
+    if (is_it_hypotenuse (13) == True):
+        print ("13: ok")
+        counter += 1
+    else:
+        print ("13: nok")
+    if (is_it_hypotenuse (25) == True):
+        print ("25: ok")
+        counter += 1
+    else:
+        print ("25: nok")
+    if (is_it_hypotenuse (3) == False):
+        print ("3: ok")
+        counter += 1
+    else:
+        print ("3: nok")
+    if (is_it_hypotenuse (1) == False):
+        print ("1: ok")
+        counter += 1
+    else:
+        print ("1: nok")
+    if (is_it_hypotenuse (24) == False):
+        print ("24: ok")
+        counter += 1
+    else:
+        print ("24: nok")
+    if (is_it_hypotenuse (6) == False):
+        print ("6: ok")
+        counter += 1
+    else:
+        print ("6: nok")
+    print ("")
+    if (counter == 8):
+        print("The tests were sucessful.")
+    else:
+        print("There were one or more errors.")
+
+def test_sum_hypotenuses ():
+    counter = 0
+    if (sum_hypotenuses (25) == 105):
+        print ("25: ok")
+        counter += 1
+    else:
+        print ("25: nok")
+    if (sum_hypotenuses (10) == 15):
+        print ("10: ok")
+        counter += 1
+    else:
+        print ("10: nok")
+    if (sum_hypotenuses (42) == 416):
+        print ("42: ok")
+        counter += 1
+    else:
+        print ("42: nok")
+    if (sum_hypotenuses (1) == 0):
+        print ("1: ok")
+        counter += 1
+    else:
+        print ("1: nok")
+    if (sum_hypotenuses (-1) == 0):
+        print ("-1: ok")
+        counter += 1
+    else:
+        print ("-1: nok")
+    if (sum_hypotenuses (-10.52) == 0):
+        print ("-10.52: ok")
+        counter += 1
+    else:
+        print ("-10.52: nok")
+    if (sum_hypotenuses (-1) == 0):
+        print ("-1: ok")
+        counter += 1
+    else:
+        print ("-1: nok")
+    print ("")
+    if (counter == 7):
+        print("The tests were sucessful.")
+    else:
+        print("There were one or more errors.")
