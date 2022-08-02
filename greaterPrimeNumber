@@ -1,6 +1,3 @@
-#The program returns the greater prime number in a range between 2 and and a number inserted by the user. The program can be use multiple times
-#and it will end when the user insert 0.
-
 def main ():
     number = 1
     while (number != 0):
