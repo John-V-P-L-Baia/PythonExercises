@@ -1,7 +1,3 @@
-# A function that get a number n and see what numbers between 1 and n are hypotenuse of a rectangle triangle
-# (considering that the cathetus and the hypotenuse are natural numbers), and return the sum of all hypotenuses in the range.
-# The tests were made automaticaly.
-
 def sum_hypotenuses (entry):
     if (entry > 0 and type(entry) == int):
         auxiliary = 1
