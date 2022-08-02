@@ -1,5 +1,3 @@
-# Function that reads all the numbers in an array and return the sum of them.
-
 def elements_sum (_list):
     totalSum = 0
     for x in range (0,len(_list)):
