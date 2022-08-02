@@ -1,5 +1,3 @@
-#The function return the quantity of prime numbers between 2 and a variable (inputNumber).
-
 def n_primos (inputNumber):
     inputNumber = int(inputNumber)
     if(inputNumber >= 2 or type(inputNumber) != int):
