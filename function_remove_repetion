@@ -1,4 +1,4 @@
-#the program remove the repeated numbers in a list and return the list in crescent order
+#Function that remove the repeated numbers in an array and return the list in crescent order
 
 def remove_repetion (_list):
     _list.sort()
