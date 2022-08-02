@@ -1,4 +1,4 @@
-#put the height and the length of the rectangle and the function will print it (the corners will be "+" signs)
+#Function that ask the user to insert the height and the length of the rectangle and the function will print it (the corners will be "+" signs)
 
 def print_rectangle (height,length):
     l = 1
