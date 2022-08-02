@@ -1,0 +1,27 @@
+#The program take as entry a series of numbers given by the user and print then one by one in reverse,
+#returning a error message when the entry is not a whole number and the result are display after the entry is zero.
+
+def main():
+    entry = 1
+    index = 0
+    numberList = []
+    while (entry != 0):
+        entry = int_or_float ()
+        if(entry != 0):
+            numberList.append(entry)
+            index += 1
+        else:
+            entry = 0
+    for x in range (len(numberList)):
+        print(numberList [- x - 1])
+    
+def int_or_float ():
+    entry = " "
+    while (type(entry) != int):
+        try:
+            entry = int(input("Insert a number: "))
+        except ValueError as ve:
+            print ("That's not a valid number!")
+    return entry
+
+main ()
