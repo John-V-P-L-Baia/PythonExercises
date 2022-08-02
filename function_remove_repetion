@@ -1,0 +1,33 @@
+#the program remove the repeated numbers in a list and return the list in crescent order
+
+def remove_repetion (_list):
+    _list.sort()
+    for x in range (len(_list) - 1,0,-1):
+        if _list[x] == _list[x - 1]:
+            del _list [x]
+    return _list
+    
+def test():
+    counter = 0
+    _list = [2,6,8,5,5,6,9,2,2]
+    if remove_repetion (_list) == [2,5,6,8,9]:
+        print ("OK")
+        counter += 1
+    else :
+        print ("Not OK")
+    _list = [0,0,5,5,2,1]
+    if remove_repetion (_list) == [0,1,2,5]:
+        print ("OK")
+        counter += 1
+    else :
+        print ("Not OK")
+    _list = [-2,0,-2,5,2,1]
+    if remove_repetion (_list) == [-2,0,1,2,5]:
+        print ("OK")
+        counter += 1
+    else :
+        print ("Not OK")
+    if(counter == 3):
+        print ("All tests were successful")
+    else:
+        print ("There is one or more unsuccessful tests")
