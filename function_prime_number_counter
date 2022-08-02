@@ -1,4 +1,4 @@
-#The function return the number of prime numbers between 2 and a variable (inputNumber).
+#The function return the quantity of prime numbers between 2 and a variable (inputNumber).
 
 def n_primos (inputNumber):
     inputNumber = int(inputNumber)
