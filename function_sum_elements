@@ -1,0 +1,32 @@
+# Function that reads all the numbers in an array and return the sum of them.
+
+def elements_sum (_list):
+    totalSum = 0
+    for x in range (0,len(_list)):
+        totalSum = totalSum + _list [x]
+    return totalSum
+
+def test():
+    counter = 0
+    _list = [2,6,8,5,5,6,9,2,2]
+    if elements_sum (_list) == 45:
+        print ("OK")
+        counter += 1
+    else :
+        print ("Not OK")
+    _list = [0,0,5,5,2,1]
+    if elements_sum (_list) == 13:
+        print ("OK")
+        counter += 1
+    else :
+        print ("Not OK")
+    _list = [-2,0,-2,5,2,1]
+    if elements_sum (_list) == 4:
+        print ("OK")
+        counter += 1
+    else :
+        print ("Not OK")
+    if(counter == 3):
+        print ("All tests were successful")
+    else:
+        print ("There is one or more unsuccessful tests")
