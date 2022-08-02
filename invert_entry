@@ -1,5 +1,4 @@
-#The program take as entry a series of numbers given by the user and print then one by one in reverse,
-#returning a error message when the entry is not a whole number and the result are display after the entry is zero.
+
 
 def main():
     entry = 1
