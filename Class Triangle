@@ -1,0 +1,71 @@
+import pytest
+
+class Triangle:
+    def __init__(self, a, b, c): # initialize the sides of a triangle
+        self.a = a
+        self.b = b
+        self.c = c
+
+    def calculate_perimeter(self):
+        if (self.a <= 0
+            or self.b <= 0
+            or self.c <= 0
+            ):
+            return 0
+        else:
+            soma = (self.a
+                    + self.b
+                    + self.c
+                    )
+            return soma
+
+    def triangle_type_side(self):
+        if (self.a <= 0
+            or self.b <= 0
+            or self.c <= 0
+            ):
+            return 0
+        else:
+            if (self.a == self.b and self.b == self.c):
+                return "equilateral"
+            elif (self.a != self.b and self.a != self.c and self.b != self.c):
+                return "scalene"
+            else:
+                return "isosceles"
+        
+class TestTriangle: # class made to test the methods of the class Triangle
+    @pytest.fixture
+    def t (self,entry_a, entry_b, entry_c):
+        return Triangle(entry_a, entry_b, entry_c)
+    @pytest.mark.parametrize("entry_a, entry_b, entry_c, exp_per", [
+        (1, 1, 1, 3),
+        (2, 5, 10, 17),
+        (52, 98, 110, 260),
+        (1000, 1000, 10000, 12000),
+        (0, 10, 20, 0),
+        (10, 0, 20, 0),
+        (20, 10, 0, 0),
+        (-20, 15, 5, 0),
+        (2, -5, 8, 0),
+        (1, 12, -1, 0),
+        ])
+        
+    def test_calculate_perimeter(self, t, exp_per):
+        assert t.calculate_perimeter() == exp_per
+
+    @pytest.mark.parametrize("entry_a, entry_b, entry_c, exp_tip", [
+        (1, 1, 1, "equilateral"),
+        (2, 5, 10, "scalene"),
+        (52, 98, 110, "scalene"),
+        (1000, 1000, 10000, "isosceles"),
+        (0, 10, 20, 0),
+        (10, 0, 20, 0),
+        (20, 10, 0, 0),
+        (-20, 15, 5, 0),
+        (2, -5, 8, 0),
+        (1, 12, -1, 0),
+        ])
+
+    def test_triangle_type_side(self, t, exp_tip):
+        assert t.triangle_type_side() == exp_tip
+
