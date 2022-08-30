@@ -1,0 +1,39 @@
+import random
+
+class Array:
+
+    def __init__(self, array):
+        self.array = array
+        
+    def sort(self):
+        for i in range(len(self.array) - 1):
+            lesser_position = i
+            for j in range(i + 1, len(self.array)):
+                if self.array[lesser_position] > self.array[j]:
+                    lesser_position = j
+            self.array[i], self.array[lesser_position] = self.array[lesser_position], self.array[i]
+        return self.array
+
+    def is_it_sorted(self):
+        for i in range (len(self.array) - 1):
+            if self.array[i] > self.array[i + 1]:
+                return False
+        return True
+
+
+class Test:
+        
+    def generate_array(self, lenght, rangeMin, rangeMax):
+        array =[]
+        for i in range (lenght):
+            number = random.randint(rangeMin,rangeMax)
+            array.append(number)
+        return array
+    
+    def test_sort(self, tests_quantity = 10):
+        for i in range (tests_quantity):
+            testArray = self.generate_array(random.randint(6,12), -20, 20)
+            t = Array(testArray)
+            t.sort()
+            assert t.is_it_sorted() == True
+
