@@ -1,1 +1,112 @@
+class Numeric_Searcher:
+    def __init__(self, array, value):
+        '''initialize with the array and the element that will be searched in 
+            the array'''
+        
+        self.array = array
+        self.value = value
 
+    def index_array(self):
+        '''generate a matriz that each line have the information of the 
+            element of the given array in the first column and it's
+            position in the array in the second column.'''
+        
+        index_array = []
+        for i in range (len(self.array)):
+            aux = []
+            aux.append(self.array[i])
+            aux.append(i)
+            index_array.append(aux)
+        return index_array
+    
+    def binary_search(self):
+        '''search for a specific number in an array using the binary search
+            method and return an arrau wih every position it appears or None
+            if the number doesn't appears in the array'''
+        
+        arrayIndexed = self.index_array()
+        arrayIndexed.sort()
+        counter = len(arrayIndexed)
+        valuePositions = []
+        position = (len(arrayIndexed) // 2) - 1
+        
+        while(counter >= 1):
+            if(arrayIndexed[position][0] == self.value):
+                foundedValuePosition = position
+                while(arrayIndexed[position][0] == self.value):
+                    valuePositions.append(arrayIndexed[position][1])
+                    if(position <= len(arrayIndexed) - 1):
+                        position += 1
+                    else:
+                        break
+                position = foundedValuePosition - 1
+                while(arrayIndexed[position][0] == self.value):
+                    valuePositions.append(arrayIndexed[position][1])
+                    if(position >= 0):
+                        position -= 1
+                    else:
+                        break
+                    valuePositions.sort()
+                return valuePositions
+            elif (self.value > arrayIndexed[position][0]):
+                position = (position
+                            + ((len(arrayIndexed) - position - 1) // 2))
+            else:
+                position = position // 2
+                pass
+            counter /= 2
+        return None
+
+    def sequentional_search(self):
+        '''search for specific number in an array using the sequentional search
+            method and return an array with every position it appears or None
+            if the number doesn't appears in the array'''
+
+        valuePositions = []
+        for i in range(len(self.array)):
+            if(self.array[i] == self.value):
+                valuePositions.append(i)
+        if (len(valuePositions) == 0):
+            return None
+        else:
+            return valuePositions
+
+
+class Test:
+    '''make tests '''
+    
+    import random
+
+    def __init__(self, repetions, startingNumber, endingNumber):
+        self.endingNumber = endingNumber
+        self.startingNumber = startingNumber
+        self.repetions = repetions
+        
+    def generate_sequentional_array(self):
+        array = []
+        number = self.startingNumber
+        for i in range(self.startingNumber, self.endingNumber + 1):
+            for j in range(self.repetions):
+                array.append(number)
+            number += 1
+        return array
+            
+    def test_time(self, scale):
+        import time
+        t = Test(3, 0, 9)
+        array = t.generate_sequentional_array()
+        array = scale * array
+        s = Numeric_Searcher(array, self.startingNumber)
+        start = time.time()
+        s.sequentional_search()
+        end = time.time()
+        seqTime = end - start
+        
+        star = time.time()
+        s.binary_search()
+        end = time.time()
+        binTime = end - start
+
+        print("Array size: ", len(array))
+        print("Sequentional execution time: ", seqTime)
+        print("Binary execution time: ", binTime)
